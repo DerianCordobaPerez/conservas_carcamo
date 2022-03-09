@@ -1,4 +1,7 @@
 {
     "/js/app.js": "/js/app.js",
+    "/js/dashboard/app.js": "/js/dashboard/app.js",
+    "/css/dashboard/vendor/@fontawesome/fontawesome-free/css/all.min.css": "/css/dashboard/vendor/@fontawesome/fontawesome-free/css/all.min.css",
+    "/css/dashboard/app.css": "/css/dashboard/app.css",
     "/css/app.css": "/css/app.css"
 }

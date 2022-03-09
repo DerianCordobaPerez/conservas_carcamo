@@ -1,4 +1,4 @@
-@import 'dashboard/tailwind.css';
-@import '../../../node_modules/tailwindcss/base.css';
-@import '../../../node_modules/tailwindcss/components.css';
-@import '../../../node_modules/tailwindcss/utilities.css';
+@import 'tailwind.css';
+@import 'tailwindcss/base.css';
+@import 'tailwindcss/components.css';
+@import 'tailwindcss/utilities.css';

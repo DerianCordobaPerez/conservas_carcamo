@@ -7,10 +7,11 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use Laravel\Scout\Searchable;
 
 class Product extends Model
 {
-    use HasFactory, SoftDeletes;
+    use HasFactory, SoftDeletes, Searchable;
 
     protected $fillable = [
         'slug',
@@ -19,6 +20,10 @@ class Product extends Model
         'price',
         'stock',
         'images'
+    ];
+
+    protected $hidden = [
+        'id'
     ];
 
     public function categories(): BelongsToMany
@@ -34,7 +39,16 @@ class Product extends Model
         );
     }
 
-    protected $hidden = [
-        'id'
-    ];
+    public function toSearchableArray(): array
+    {
+        return [
+            'slug' => $this->slug,
+            'name' => $this->name,
+        ];
+    }
+
+    public function getRouteKeyName(): string
+    {
+        return 'slug';
+    }
 }

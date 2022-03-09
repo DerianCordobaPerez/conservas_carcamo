@@ -19,7 +19,7 @@
 
 <body
     @isset($body)
-        {{ $body }}
+        class="{{ $body }}"
     @endisset
 >
     <div id="root">

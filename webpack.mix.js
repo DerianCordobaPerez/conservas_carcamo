@@ -11,8 +11,13 @@ const mix = require('laravel-mix');
  |
  */
 
-mix.js('resources/js/app.js', 'public/js')
-    .postCss('resources/css/app.css', 'public/css')
+mix
+    .js('resources/js/app.js', 'public/js')
+    .js('resources/js/dashboard/app.js', 'public/js/dashboard')
+    .postCss('resources/css/app.css', 'public/css', [
+        require('postcss-import'),
+        require('tailwindcss'),
+    ])
     .postCss('resources/css/dashboard/app.css', 'public/css/dashboard', [
         require('postcss-import'),
         require('tailwindcss'),
@@ -21,6 +26,7 @@ mix.js('resources/js/app.js', 'public/js')
         'resources/css/dashboard/vendor/@fontawesome/fontawesome-free/css/all.min.css',
         'public/css/dashboard/vendor/@fontawesome/fontawesome-free/css/all.min.css'
     )
+
 
 if (mix.inProduction()) {
     mix.version();
